@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      - polimata-dev-data:/app/data
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=file:/app/data/polimata.db
+      - NEXT_TELEMETRY_DISABLED=1
+      - WATCHPACK_POLLING=true
+      - CI=true
+    command: >
+      sh -c "npm run db:setup &&
+             (npm run db:seed || echo 'seed skipped') &&
+             npm run dev"
+    restart: unless-stopped
+
+volumes:
+  polimata-dev-data:
+    driver: local

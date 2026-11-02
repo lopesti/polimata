@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Polimata",
+  "version": "0.12.0",
+  "identifier": "app.polimata.desktop",
+  "build": {
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Polimata",
+        "width": 1280,
+        "height": 800,
+        "resizable": true
+      }
+    ],
+    "security": { "csp": null }
+  }
+}

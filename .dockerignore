@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+README.md
+Dockerfile*
+docker-compose*
+data/*.db
+data/*.db-*
+*.md
+.env*
+!.env.example
+coverage
+tests
+playwright-report
